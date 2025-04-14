@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      - FLASK_ENV=development
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: kalpana
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: kalpana_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+
