@@ -30,8 +30,20 @@ chmod +x minikube-linux-amd64 && sudo mv minikube-linux-amd64 /usr/local/bin/min
 Folder Structure
 
 day7-k8s/
+
+
 ├── flask-deployment.yaml
 ├── flask-service.yaml
 ├── postgres-deployment.yaml
 ├── postgres-service.yaml
 
+
+Deploy Everything
+
+kubectl apply -f postgres-deployment.yaml
+kubectl apply -f flask-deployment.yaml
+
+
+Wait for pods to be ready:
+
+kubectl get pods
