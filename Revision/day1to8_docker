@@ -1,0 +1,133 @@
+✅ Day 1: Docker Basics
+Q1. What is Docker?
+A: Docker is a tool that helps you package applications with their dependencies into containers, ensuring consistency across environments.
+
+Q2. How do you build and run a Docker image?
+
+docker build -t my-image-name .
+docker run -p 5000:5000 my-image-name
+
+Q3. How to save and load Docker images?
+A:
+docker save -o image.tar image-name  
+docker load -i image.tar
+
+
+✅ Day 2: Dockerfile
+Q1. What is a Dockerfile?
+A: A script with instructions to build a Docker image.
+
+Q2. Common instructions in Dockerfile?
+A:
+
+FROM: base image
+
+WORKDIR: set working directory
+
+COPY: copy files into container
+
+RUN: run shell commands
+
+CMD: default command to run
+
+EXPOSE: expose a port
+
+✅ Day 3: Docker Image Registry + Save/Load
+Q1. How to tag and push Docker images to private registry?
+A:
+
+docker tag image-name registry.example.com/project/image:tag
+docker push registry.example.com/project/image:tag
+
+Q2. How to pull from private registry?
+A:
+
+docker login registry.example.com
+docker pull registry.example.com/project/image:tag
+
+✅ Day 4: Docker Compose
+Q1. What is Docker Compose?
+A: Tool to run multi-container Docker applications using docker-compose.yml.
+
+Q2. Common Compose commands?
+A:
+
+docker-compose up --build
+docker-compose down
+
+Q3. Example docker-compose.yml components?
+A:
+
+services: define each container
+
+volumes: persistent storage
+
+depends_on: service dependencies
+
+✅ Day 5: Docker Compose Continued
+Q1. How do services communicate in Compose?
+A: Using service names as hostnames (e.g., redis from Flask).
+
+Q2. How to use .env file in Compose?
+A: Define variables and use them like ${VARIABLE} in YAML.
+
+✅ Day 6: Kubernetes Basics
+Q1. What is Kubernetes?
+A: Container orchestration tool to manage containers at scale.
+
+Q2. Key Kubernetes objects?
+A:
+
+Pod: smallest unit, wraps containers
+
+Deployment: manages replicas
+
+Service: exposes Pods (internal/external)
+
+Q3. Basic commands?
+
+kubectl get pods
+kubectl apply -f filename.yaml
+kubectl delete -f filename.yaml
+
+✅ Day 7: Pods vs Containers
+Q1. What is the difference between Pod and Container?
+A:
+
+Pod = abstraction over container(s) + shared network/storage
+
+Container = single runtime unit inside a Pod
+
+Q2. Can a Pod have multiple containers?
+A: Yes, they share the same network and volume space.
+
+✅ Day 8: ConfigMaps & Secrets
+Q1. What is a ConfigMap?
+A: Stores non-sensitive key-value config data (e.g., host, port).
+
+Q2. What is a Secret?
+A: Stores sensitive data like passwords, encoded in base64.
+
+Q3. How to use them in Deployment?
+A:
+
+yaml
+
+envFrom:
+  - configMapRef:
+      name: db-config
+  - secretRef:
+      name: db-secret
+
+Q4. What causes ImagePullBackOff error?
+A:
+
+Image not found or no permission
+
+Fix: Push image to public/private registry and use correct image name
+
+Q5. How to fix Docker permission error?
+A:
+
+sudo usermod -aG docker $USER
+# Then logout and login again
