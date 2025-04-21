@@ -1,0 +1,43 @@
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+{
+  "manifestVersion": "2.0.0",
+  "signatureType": "grafana",
+  "signedByOrg": "grafana",
+  "signedByOrgName": "Grafana Labs",
+  "plugin": "grafana-mongodb-datasource",
+  "version": "1.24.1",
+  "time": 1743752815195,
+  "keyId": "7e4d0c6a708866e7",
+  "files": {
+    "CHANGELOG.md": "ede07c5d0a5848541cdf4361636cb440e681da735ba9d698afab34747b93bb70",
+    "LICENSE": "3416968ea747b008ae1468587166834eda3c2ee53038d8a6b1ce40757725ec42",
+    "README.md": "7c5f98f523a5f51de3f1211a7fc6a9f9b0870bba9c44245b018e4900e14f1a32",
+    "dashboards/Mongo - Ad Hoc.json": "0af1a72f896c7dbd7124e29df394704f9afd7262a0431630a4d3ee51a3b02768",
+    "dashboards/Mongo Diagnostics.json": "8735e8498cca691a9441b6738e1b065ff55b68db633560e34a4d8911dee09af5",
+    "dashboards/Mongo Movie.json": "8d390acb6006256abd5edc8867fab192c7e460ee5e65caff408112223e106201",
+    "dashboards/Mongo Movies.json": "76885349d50a8d5e5437c9371744fa75ed68eebf882cbbb075e3b13b81af2515",
+    "go_plugin_build_manifest": "b2b132e738b42e753e41898065ad279c5447c33d6fcb81d7cd99ed851c2781b7",
+    "gpx_mongodb_linux_amd64": "eb88cbdde0a3723ef45ca85c4dc9cf99d4cb37bd722c352267eb40ea254ae17d",
+    "img/ad_hoc_filter.png": "d1aa2b6f0eff2e71758de20e129ac5bb37aa58f2f7fb260b5719b63f3077c993",
+    "img/mongodb-ar21.svg": "ede28d1b1bedba85cb141a0797c6f275fa6f2e3d59065fceba62af09691d441c",
+    "img/mongodb-icon.svg": "fc2c4477b8648a1ebdbd5a9f05a6cccb833d029dc651a09a74451931f3dca066",
+    "module.js": "61122d33700f50224b13281487128cd55481b9e3b2eadf0c9fb7899d2cefb37e",
+    "module.js.LICENSE.txt": "2351d9cd6159f6e0e9f39071554065fa1c1849710d7f7e5e7a20d10179d9bec4",
+    "module.js.map": "d591c61eb6c906499c1f970bbc24c197b83e7d0744f32bef2d5d5ab86dcbd0bc",
+    "plugin.json": "c87a90b7e624c3ce21c4a103bb5e6477a4d449cbe68613679755da265ae7774d"
+  }
+}
+-----BEGIN PGP SIGNATURE-----
+Version: OpenPGP.js v4.10.11
+Comment: https://openpgpjs.org
+
+wrkEARMKAAYFAmfvjm8AIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
+cIhm5w+4AgkBPxvuM92sJJYpxFaTd10oiSpGif7CcKy94ZXa108IMSnodg8I
+Ab5gJ3muZuD8CPpFR9rwS4tI6hzbNjnXu3/Z+hECCQEYdeqXnJTvZ1qGYsN5
+KOfGEbhw1AFDvxc5IeIyjCmbV/JYrAkjrIWD2QntMaOUV6KGHaV+WhCeyWuV
+aB4MIkjKOg==
+=sfyZ
+-----END PGP SIGNATURE-----

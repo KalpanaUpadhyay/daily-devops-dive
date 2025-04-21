@@ -1,0 +1,46 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
+  "alerting": true,
+  "annotations": true,
+  "backend": true,
+  "category": "enterprise",
+  "dependencies": {
+    "grafanaDependency": "\u003e=10.4.8",
+    "grafanaVersion": "10.x.x",
+    "plugins": []
+  },
+  "executable": "gpx_mongodb",
+  "id": "grafana-mongodb-datasource",
+  "info": {
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "build": {
+      "time": 1743752808733
+    },
+    "description": "MongoDB datasource plugin for Grafana",
+    "keywords": [
+      "mongodb"
+    ],
+    "links": [
+      {
+        "name": "Docs",
+        "url": "https://grafana.com/docs/plugins/grafana-mongodb-datasource"
+      },
+      {
+        "name": "License",
+        "url": "https://grafana.com/legal/enterprise-plugins"
+      }
+    ],
+    "logos": {
+      "large": "img/mongodb-ar21.svg",
+      "small": "img/mongodb-icon.svg"
+    },
+    "updated": "2025-04-04",
+    "version": "1.24.1"
+  },
+  "metrics": true,
+  "name": "MongoDB",
+  "type": "datasource"
+}
