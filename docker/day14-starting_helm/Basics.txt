@@ -1,0 +1,52 @@
+What is HELM?
+
+Helm is like apt (for Ubuntu) or npm (for Node.js), but for Kubernetes. It helps you manage complex Kubernetes applications by packaging them into reusable units called Charts.
+
+⚙️ What it does:
+Installs apps on Kubernetes (e.g., Cassandra, Redis, NGINX)
+
+Manages configuration (values.yaml)
+
+Helps upgrade/downgrade or roll back app versions
+
+Handles dependency management
+
+📦 Example:
+You want to deploy Cassandra on Kubernetes. Instead of writing a bunch of YAML files manually, you do:
+
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install my-cassandra bitnami/cassandra
+
+Boom — Cassandra is deployed with sane defaults, secrets, StatefulSets, services, etc.
+
+
+
+🛢️ Apache Cassandra — “Distributed NoSQL Database”
+
+🔍 What it is:
+Cassandra is a highly scalable, distributed NoSQL database designed to handle massive amounts of data across many nodes, with no single point of failure.
+
+🧠 Key Features:
+NoSQL → stores data in key-value or wide-column format (not tables with joins like in SQL)
+
+Peer-to-peer architecture
+
+High write throughput
+
+Fault-tolerant and decentralized
+
+Used by Netflix, Instagram, Reddit, etc.
+
+📈 Use cases:
+Time-series data
+
+IoT data ingestion
+
+Real-time analytics
+
+When you need 24/7 uptime and massive scalability
+
+🧩 Together:
+You might use Helm to deploy Cassandra on Kubernetes easily. Helm simplifies deployment, and Cassandra gives you the power of a fault-tolerant database that can scale horizontally.
+
+
