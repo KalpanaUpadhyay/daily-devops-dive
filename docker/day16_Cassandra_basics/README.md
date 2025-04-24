@@ -8,6 +8,12 @@ Create a keyspace, table, insert and query data
 1. Enter the Cassandra Pod
 kubectl exec -it cassandra-0 -- cqlsh
 
+Incase this command does not work (Permission issues)
+
+Try:
+kubectl exec -it cassandra-0 -- cqlsh -u cassandra -p my-secret-pass[Replace with you password retrieved from  kubectl exec -it cassandra-0 -- printenv | grep CASSANDRA OR /opt/bitnami/cassandra/secrets/cassandra-password]
+
+
 2. Create a Keyspace
 CREATE KEYSPACE kalpana_space WITH replication = {
   'class': 'SimpleStrategy',
