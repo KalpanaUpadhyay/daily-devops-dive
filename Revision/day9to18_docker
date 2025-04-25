@@ -1,0 +1,47 @@
+Here's a summary of the key concepts you worked on:
+
+Docker & Kubernetes Basics
+Docker: A tool for creating, deploying, and running applications in containers. Containers are lightweight, portable, and ensure that an application runs the same regardless of where it's deployed.
+
+Kubernetes: An open-source system for automating the deployment, scaling, and management of containerized applications. It helps manage containerized applications (like those in Docker) across a cluster of machines.
+
+Pods: The smallest deployable units in Kubernetes, which can hold one or more containers.
+
+Deployments: Ensure that a specified number of pod replicas are running at all times.
+
+Services: Expose your app to the outside world or within the cluster and help with communication between pods.
+
+Docker Compose & Kubernetes Integration
+Docker Compose: A tool for defining and running multi-container Docker applications. Compose allows you to define an application’s services, networks, and volumes in a docker-compose.yml file.
+
+Kompose: A tool to convert Docker Compose files into Kubernetes deployment configurations, making it easier to transition from Docker Compose to Kubernetes.
+
+Stateful Applications in Kubernetes
+StatefulSets: A Kubernetes resource for managing stateful applications. Unlike Deployments, StatefulSets maintain a stable identity (DNS and storage) for each pod.
+
+Persistent Volumes (PVs) & Persistent Volume Claims (PVCs): PVs are storage resources in the cluster, and PVCs are requests for storage. Used to ensure data persists even if pods are deleted or recreated.
+
+MongoDB on Kubernetes
+Helm: A package manager for Kubernetes, used to define, install, and manage Kubernetes applications. It simplifies the deployment process for complex applications like MongoDB.
+
+Persistent Storage for MongoDB: MongoDB requires persistent storage to keep its data. Kubernetes uses PVCs to manage this storage.
+
+Apache Kafka on Kubernetes
+Kafka: A distributed streaming platform used for building real-time data pipelines and streaming applications. It allows you to publish, subscribe to, and process streams of records in real-time.
+
+Zookeeper: A distributed coordination service that Kafka uses for managing configuration and synchronization across its cluster.
+
+Producers & Consumers: Kafka producers send data to Kafka topics, while consumers read data from topics. These form the core components of Kafka messaging.
+
+Scaling & Monitoring in Kubernetes
+Scaling: In Kubernetes, scaling is the process of adjusting the number of pod replicas or resources allocated to the services. This ensures the application can handle changes in load.
+
+Monitoring with Prometheus & Grafana:
+
+Prometheus: A monitoring and alerting toolkit that collects metrics from your services.
+
+Grafana: A tool used to visualize the metrics collected by Prometheus, providing dashboards and alerts.
+
+Kafka and MongoDB Metrics: Monitoring tools collect key metrics like throughput, latency, and error rates from Kafka and MongoDB to ensure they run optimally.
+
+
