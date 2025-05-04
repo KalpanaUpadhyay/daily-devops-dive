@@ -1,0 +1,83 @@
+✅ Day 18 – Helm Lifecycle Hooks
+Hooks are special lifecycle events (e.g., pre-install, post-install) defined in your templates.
+
+You can use them to:
+
+Run DB migrations before deployment
+
+Cleanup after uninstall
+
+Defined using annotations like:
+
+annotations:
+  "helm.sh/hook": pre-install
+
+✅ Day 19 – Helm Upgrade and Rollback
+helm upgrade myapp . — updates your release with new values/templates.
+
+helm rollback myapp 1 — rolls back to revision 1.
+
+Use helm history myapp to see all revisions.
+
+You can force upgrade with --force or keep old values with --reuse-values.
+
+✅ Day 20 – Helm Testing Framework
+Helm lets you define tests as Kubernetes jobs.
+
+Defined inside templates/tests/:
+
+annotations:
+  "helm.sh/hook": test
+Run tests with:
+
+helm test <release-name>
+
+✅ Day 21 – Helm with Dependencies (Charts of Charts)
+Use Chart.yaml to define dependencies:
+
+dependencies:
+  - name: redis
+    version: 14.0.0
+    repository: https://charts.bitnami.com/bitnami
+Then run:
+
+helm dependency update
+It downloads subcharts into charts/ directory.
+
+✅ Day 22 – Helm Best Practices
+Follow naming conventions: use fullnameOverride and nameOverride.
+
+Keep templates modular.
+
+Store values.yaml per environment.
+
+Use helm lint to catch syntax errors.
+
+✅ Day 23 – Helm and CI/CD Integration
+Helm is easily integrated with CI/CD tools like Jenkins, GitHub Actions, or GitLab CI.
+
+Example GitHub Actions step:
+
+- name: Deploy with Helm
+  run: helm upgrade --install myapp ./chart --values values-prod.yaml
+✅ Day 24 – Creating Your Own Helm Chart Repository
+Use helm package to package your chart.
+
+Generate index.yaml using:
+
+helm repo index . --url <your-host-url>
+Host .tgz and index.yaml on GitHub Pages.
+
+Add the repo with:
+
+helm repo add myrepo <url>
+
+🧠 Summary Table
+Topic	Key Focus
+Helm Hooks	Lifecycle control like pre-install, post-delete, etc.
+Upgrade & Rollback	Manage revisions and rollbacks safely
+Test Framework	Kubernetes jobs for post-deploy verification
+Chart Dependencies	Reuse other charts via Chart.yaml
+Best Practices	Clean code, linting, naming conventions
+CI/CD Integration	Helm in automated deployment pipelines
+Custom Chart Repo	Host your own .tgz charts on GitHub Pages
