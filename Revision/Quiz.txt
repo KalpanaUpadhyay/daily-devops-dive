@@ -1,0 +1,91 @@
+🔧 Helm Lifecycle & Hooks
+1. What are Helm hooks and how are they used in the deployment lifecycle?
+Helm hooks are special Kubernetes manifests that run at specific points in the chart lifecycle, like pre-install, post-install, pre-upgrade, post-upgrade, etc. They're defined by adding annotations like:
+
+annotations:
+  "helm.sh/hook": pre-install
+They allow you to run jobs/scripts before or after Helm operations.
+
+2. Can you explain a real-world use case for a post-install or pre-delete hook?
+
+post-install: Run a job to load seed data into a database after it's deployed.
+
+pre-delete: Take a backup of the database before it’s deleted.
+
+🔁 Upgrade & Rollback
+3. What happens internally when you run helm upgrade?
+Helm compares the new chart with the previous release and applies only the differences using kubectl apply. It also records the new release version for rollback.
+
+4. How can you rollback a Helm release and what are some risks involved?
+Use: helm rollback <release-name> <revision-number>
+Risks: Rollback may fail if the previous chart version is incompatible with the current cluster state (e.g., resource conflicts or missing dependencies).
+
+5. How would you upgrade a chart while retaining previous custom values?
+Use:
+
+helm get values <release-name> -o yaml > old-values.yaml
+helm upgrade <release-name> <chart> -f old-values.yaml --set newKey=value
+🧪 Testing with Helm
+6. How can Helm tests help in your CI/CD workflow?
+You can define test pods using the helm.sh/hook: test annotation to validate that your application works after deployment. These can run smoke tests, DB checks, etc.
+
+7. What happens when a Helm test fails? How do you handle that in production deployments?
+If a test fails, it doesn’t rollback automatically. CI/CD should be configured to fail the pipeline and alert the team. You may then manually rollback or troubleshoot.
+
+📦 Helm Dependencies
+8. What is the purpose of declaring dependencies in Chart.yaml?
+To automatically pull and deploy subcharts (e.g., Redis, PostgreSQL) along with your main chart. Dependencies are managed centrally.
+
+9. What command do you use after adding dependencies to ensure Helm fetches them properly?
+
+helm dependency update
+10. How are child charts managed inside the parent chart structure?
+Place child charts inside the charts/ directory of the parent. Their values can be overridden using a nested structure in values.yaml.
+
+✅ Best Practices
+11. Why is using fullnameOverride or nameOverride important in a Helm chart?
+To control and simplify resource names, especially when chart names are long or reused in different environments.
+
+12. How would you structure Helm values for different environments like dev, staging, and prod?
+Use separate YAML files:
+
+helm install my-app -f values-dev.yaml
+helm install my-app -f values-prod.yaml
+13. What does helm lint check for? How does it help in Helm development?
+It checks for common chart errors, YAML issues, bad references, and missing fields. It ensures charts are syntactically correct before installation.
+
+⚙️ CI/CD Integration
+14. How would you integrate Helm into a GitHub Actions CI/CD pipeline?
+Use the official Helm GitHub Action:
+
+- uses: azure/setup-helm@v3
+- run: helm upgrade --install my-app ./charts/my-app -f values.yaml
+15. What precautions do you take before running helm upgrade from a pipeline?
+
+Run helm lint
+
+Test chart with helm template
+
+Use --dry-run
+
+Validate with helm diff plugin
+
+Backup important data
+
+🌐 Helm Repositories
+16. How can you create and host your own Helm chart repository?
+
+Package charts with helm package
+
+Generate index.yaml with helm repo index
+
+Host on a web server or GitHub Pages
+
+17. What is index.yaml used for in a custom chart repository?
+It maintains metadata (name, version, description) of all charts in the repo. Helm uses it to find charts when you run helm install.
+
+18. Can you explain the steps to add and use a third-party Helm repo like Bitnami?
+
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+helm install my-release bitnami/mysql
