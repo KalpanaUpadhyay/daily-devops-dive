@@ -1,0 +1,79 @@
+Here’s a well-structured revision sheet of everything you've learned till Day 24 in a clean format — great for interviews or quick brushing up:
+
+✅ DevOps Revision Sheet (Docker, K8s, Helm, RabbitMQ, Monitoring)
+🐳 Docker
+Concept	                Details
+Image	                Read-only template for container.
+Container	        Running instance of an image.
+Dockerfile	        Instructions to build an image.
+Compose	YAML-based      multi-container orchestration.
+
+Common Commands	docker build, docker run, docker ps, docker logs, docker exec
+
+☸️ Kubernetes
+Concept	        Details
+Pod	        Smallest deployable unit.
+Deployment	Manages ReplicaSets, updates.
+Service	Stable network endpoint. Types: ClusterIP, NodePort, LoadBalancer.
+Volume	For persistent storage (emptyDir, hostPath, PVC).
+ConfigMap / Secret	Inject config and sensitive data.
+Probes	Liveness and readiness health checks.
+Useful Cmds	kubectl get, describe, logs, rollout, exec
+
+🧩 Helm
+Concept	Details
+Chart	Helm package with templates + values.
+values.yaml	Default config values.
+Templates	Go templating syntax for K8s YAMLs.
+Hooks	Lifecycle events like pre-install, post-delete.
+Testing	Use Helm hook: "helm.sh/hook": test
+Rollback	helm rollback <release> <revision>
+Dependency Mgmt	Declare in Chart.yaml, run helm dependency update.
+
+🧪 Helm in CI/CD
+Tool	Integration
+GitHub Actions	Use Helm CLI to lint, template, upgrade charts.
+Linting	helm lint
+Dry Run	helm upgrade --install --dry-run --debug
+Diff Plugin	Show changes before applying updates.
+
+📊 Grafana & Monitoring
+Concept	Details
+Grafana OSS	Free dashboard tool; limited plugin support.
+Prometheus	Popular metric data source.
+RabbitMQ Dashboard	Visualize queue size, consumer count, memory usage.
+Alerting	Set thresholds on consumer count, queue depth.
+Plugin Issue	MongoDB plugin needs enterprise license.
+
+🐇 RabbitMQ Monitoring Logic
+if len(getConsumersList()) == 0:
+    print("Start Recovery")
+
+if rabbitMqMasterList.difference(set(rabbitMqConsumerList)):
+    print("Start Recovery")
+else:
+    print("Send message to backend")
+Monitor consumers via Docker container stats or RabbitMQ API.
+
+Trigger backend alert or auto-recovery.
+
+⚙️ Inline vs Macro (C/C++)
+Aspect	Inline Function	Macro
+Scope	Function scope, type-checked	Text replacement, no type check
+Debugging	Easier	Harder to debug
+Safety	Safer (compiler handles)	Prone to errors
+
+📌 Best Practices
+Use .dockerignore to speed up builds.
+
+Don’t hardcode secrets in Helm; use Secret or external tools.
+
+Always use --dry-run in Helm before applying.
+
+Avoid using latest tag in production.
+
+Set resource requests & limits in K8s.
+
+Use readiness probe for rollouts and liveness probe for recovery.
+
+
